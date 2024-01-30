@@ -33,9 +33,30 @@
 - simdi src icine components ve pages folderi acip iclerindeki dosyalarla islerimizi yapacagiz.
 - components icine ; input alanimiz icin(input ve buton olacak burda), todolari sergilemek icin kapsayici component, ve herbir todo nun yapisi ayni oldugu icin bunlari tek bir componentte cagirmak icin dosyalar aciyoruz
 
--kurgumuz su; App icinde Main i cagiracagiz.yapiyi burda kurup dagitimi alt comp.lere yapacagiz. Main de AddToDo ve todo lari sergilemek icin ToDolist i cagiracagiz.ToDoList icinde de ToDoListItem i cagiracagiz
+- kurgumuz su; App icinde Main i cagiracagiz.yapiyi burda kurup dagitimi alt comp.lere yapacagiz. Main de AddToDo ve todo lari sergilemek icin ToDolist i cagiracagiz.ToDoList icinde de ToDoListItem i cagiracagiz
+
+# ------------------------------------------------------------------------
+
+#                          TODO APP PROJESI KURGUSU
+
+## Bir todo projesinin temel isleyisi sudur.main de baslik , input, buton baska bir componentte, ve todolist baska bir componentte.  inputa girilen verilerin tutulacagi bir state, sonra bu state leri yazdiracagimiz alana value olarak bildirme. sonra bu girilen degerleri onChange ile yakalama. Ve butona basilinca(onClick) bunun olmasi icin bir handleClick() fonksiyonu olusturup ekleme. ayrica butona sadece icine veri girilince basilabilsin demek icin disabled={!text} hatta space tusunu da algilamasin diye birde.trim() ekleriz disabled a.
+
+- input lardan girilen verileri icinde tutacagimiz, saklayacagimiz bir state lazim.useState() ile olusturuyoruz
+
+## simdi kullanicinin girdigi verileri butona basilinca API a gonderelim. Bu islemi en guzel home da tanimlayip ilgili componentlere akisi saglayalim.Main de yapalim.once yine cekilen verileri tutmak icin bir bos array li state kuralim. ama bu arrayin typeni never verir.bu istedigimiz birsey degil, o yuzden typeni belirtiyoruz. API den gelecek verinin array icinde obje oldugunu, key isimlerini ve valuelarin typeni bildgmz icin ve objelerin typeni interface ile yazdigimiz icin belirtiyoruz. sonra bu ismi never type li Arrayin icinde tanimliyorz.
+
+- simdi verileri API adresinden cekelim artik.async await ile try catch icinde cekip setTodos a cektigimiz veriyi atayalim. ve bunu da fonksiyona atayip useEffect icinde cagiralim.
+
+# ve inputtan gelen verileri de API ye gonderelim.yine async await ve try catch ile yaziyoruz. bir degere atiyoruz.bu sefer post islemi yapacagiz.async icine bir parametre alacak.ve bunu type olarak belirtmeliyiz, yoksa any der ki bu js demek.Typescript ile yazacagimiz icin projeyi belirtiyoruz.iki sekilde belirtilir.ya direkt parametre yanina : ile yazilir ama daha guizeli disarda belirtip sonra jem fonksiyona hem de parametreye tek seferde vermis oluruz. bu fonksiyonu simdi ilgili componente gonderelim ve orda da karsilayalim
+
+- main den gonderilen addTodo fonks.burda karsilayalim.ama typeni algilayamiyor. react da props alan bir component tanimliyorsak ve ona props gonderiyorsak gonderdigimiz propsun typeni belirtmeliyz.obje kuralina gore yaziyoruz ve karsilarken de; React.FC <AddTodo> diyoruz. yani diyoruzki bu bir reactFunctional componenttir, props olarak da AddTodo interface ine uygun olarak props gonderebilir hale getirdik. Props alan componentlerde React.FC yi belirtmemiz lazim
+
+#  gelen addTodo yu handleClick icinde yakalayalim (icine de gelen parametreyi istiyor) ve sonra tekrar state i bosaltalim.
 
 
+- ayni type tanimlamasi varsa bunlari heryerde tek tek tanimlamak yerine, typescript in dosya yapisindakli react-app-env.d.ts dosyasinin verdigi izinle yeni global bir dosya acip src icinde orda tanimlayip gerekli yerlerde sadece ismini cagiririz.
+
+# --------------------------------------------------------------------------
 ## TYPESCRIPT
 - Microsoft tarafindan gelistirilmis, JS in söz dizimsel bir süper kümesidir.Yeni bir dil olmak yerine JS uzerine kendi söz dizimini insa eden ve gelistiricilere kodlarinda kullanabilecekleri yeni özellikler sunan bir programlama dili. dunyanin en cok kullanilan 3.prog.dilidir. Js in ustunde dir TS. Js de olmayan ozellikleri JS e kazandiriyor, compile edilmeye ihtiyaci var. 
 
