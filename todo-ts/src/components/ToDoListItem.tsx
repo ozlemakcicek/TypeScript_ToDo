@@ -13,6 +13,7 @@ interface IListItem {
 const ToDoListItem: React.FC<IListItem> = ({ item , deleteTodo, toggleTodo}) => {
   return (
     <ListItem
+  
     sx={{
       cursor:"pointer",
       overflow:"hidden",   }}
@@ -23,7 +24,7 @@ const ToDoListItem: React.FC<IListItem> = ({ item , deleteTodo, toggleTodo}) => 
       </IconButton>
       }>
  
-   <ListItemText primary={item.task} sx={{wordWrap:"break-word" }} onClick={()=>toggleTodo(item)}/>
+   <ListItemText primary={item.task} sx={{wordWrap:"break-word" }} onClick={()=>toggleTodo(item)} />
      
     </ListItem> 
   );

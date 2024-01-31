@@ -43,7 +43,7 @@ interface IAddToDo {
         >
           <TextField
             id="outlined-basic"
-            label="New Todo"
+             label="New Todo"
             variant="outlined"
             sx={{ minWidth: { xs: "100%", sm: "50%" }, height: "50px", m: 1 }}
             inputProps={{ maxLength: 40 }}

@@ -3,23 +3,28 @@
 //? variant ve componentin farki; SEO da h1 gibi ama gorunurde h2 seklinde olsun demek.
 //* sonra imput alani ve eklenen todo larin gozuktugu list alanini ekliyoruz
 
-
-import  {Avatar, Card, CardContent, CardHeader, CardMedia, Container, IconButton}  from '@mui/material';
+import {
+  Avatar,
+  Card,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Container,
+  IconButton,
+} from "@mui/material";
 
 // import { red } from "@mui/material/colors";
-import { blue } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 
-// import {img} from "../img"
+import resim from "../img/todo-lists-5238324_1280.jpg";
 
+import { Typography } from "@mui/material";
 
-import  {Typography}  from '@mui/material';
-
-import React, { useEffect, useState } from 'react';
-import AddToDoComp from '../components/AddToDoComp';
-import ToDoList from '../components/ToDoList';
-import axios from 'axios';
-import { notify } from '../helper/sweetAlert';
-
+import React, { useEffect, useState } from "react";
+import AddToDoComp from "../components/AddToDoComp";
+import ToDoList from "../components/ToDoList";
+import axios from "axios";
+import { notify } from "../helper/sweetAlert";
 
 //* objenin typeni yazarken interface ifadesi ve yanina istedigin ismi verirsin.ve API mizden goruyoruz ki array icinde bir objemiz var.id, task ve isDone key leri var.type larini da ordan bakarak yazdik.simdi bunu alip neverlardan olusan Arraye yazalim ki never gitsin.
 
@@ -126,15 +131,11 @@ const Main = () => {
     notify("Todo not successfully updated!", "error");
   };
 
-
-
-
   return (
-
- <Card sx={{ maxWidth: 1000,  bgcolor:blue[100], mt:10}}>
+    <Card sx={{ maxWidth: 1000, bgcolor: grey[100], mt: 6 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: blue[700] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: grey[700] }} aria-label="recipe">
             ÖA
           </Avatar>
         }
@@ -146,54 +147,32 @@ const Main = () => {
         title="My Todo App with TypeScript "
         subheader="Januar 30, 2024"
       />
-      {/* <CardMedia
-        component="img"
-        height="194"
-        image={img}
-        alt="Paella dish"
-      /> */}
+      <CardMedia component="img" height="220" image={resim} alt="Paella dish" />
       <CardContent>
+        <Container>
+          <Typography
+            color="grey"
+            variant="h3"
+            component={"h1"}
+            align="center"
+            mt={2}
+            mb={3}
+          >
+            ToDo App with TypeScript
+          </Typography>
 
-
-
-
-
-
-
- <Container >
-      <Typography
-        color="blue"
-        variant="h3"
-        component={"h1"}
-        align="center"
-        mt={2}
-        mb={3}
-      >
-        ToDo App with TypeScript
-      </Typography>
-
-      <AddToDoComp addTodo={addTodo} />
-      <ToDoList todos={todos} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
-      {/* verileri sergilemek icin props olarak gonderelim ve de karsilayalim */}
-      {/* update islemini ToDoList de ToDoListItem da ListItemTexte tiklaninca yapilacak */}
-    </Container>
-
-
-
-       
+          <AddToDoComp addTodo={addTodo} />
+          <ToDoList
+            todos={todos}
+            deleteTodo={deleteTodo}
+            toggleTodo={toggleTodo}
+          />
+          {/* verileri sergilemek icin props olarak gonderelim ve de karsilayalim */}
+          {/* update islemini ToDoList de ToDoListItem da ListItemTexte tiklaninca yapilacak */}
+        </Container>
       </CardContent>
-     
     </Card>
-
-
-
-
-
-
-
-   
   );
-}
+};
 
-export default Main
-
+export default Main;

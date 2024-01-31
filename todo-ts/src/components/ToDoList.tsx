@@ -43,7 +43,7 @@ const ToDoList: FC<ITodos> = ({ todos, deleteTodo,toggleTodo }) => {
         xs={12}
         sm={5}
         sx={{
-          border: "1px solid purple",
+          border: "1px solid blue",
           borderRadius: "0.5rem",
           p: "1rem",
           minHeight: "350px",
@@ -53,7 +53,7 @@ const ToDoList: FC<ITodos> = ({ todos, deleteTodo,toggleTodo }) => {
         state leri ilgili yerlerde ac ve conditionlarini yaz. su kontrolu de
         yapablrz.eger veri varsa(length i true(1) ise progressTodosu map le ve
         todoListItema itemi props olarak gonder. degilse no progress todos yazdir.  */}
-        <Typography variant="h4" align="center" color="secondary">
+        <Typography variant="h4" align="center" color="black">
           In Progress Todos
         </Typography>
         {progressTodos.length ? (
@@ -64,6 +64,7 @@ const ToDoList: FC<ITodos> = ({ todos, deleteTodo,toggleTodo }) => {
               item={item}
               deleteTodo={deleteTodo}
               toggleTodo={toggleTodo}
+              
             />
             // karsila bunu ToDoListItem da
           ))
@@ -85,7 +86,7 @@ const ToDoList: FC<ITodos> = ({ todos, deleteTodo,toggleTodo }) => {
           minHeight: "350px",
         }}
       >
-        <Typography variant="h4" align="center" color="secondary">
+        <Typography variant="h4" align="center" color="grey">
           Completed Todos
         </Typography>
         {completedTodos.length ? (
