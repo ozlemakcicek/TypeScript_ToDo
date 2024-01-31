@@ -98,6 +98,8 @@
 
  - simdi Main.ts de yapilacak islemler icin yazilan fonksiyonlarda(delete ve update de) kullanip, not yazalim icine
 
+ # mui den card yapisini getirip icerisine todo App codelarini yerlestirdik.
+
 
 
 
