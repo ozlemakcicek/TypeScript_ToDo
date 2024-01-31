@@ -15,11 +15,13 @@ import axios from 'axios';
 
 //* objenin typeni yazarken interface ifadesi ve yanina istedigin ismi verirsin.ve API mizden goruyoruz ki array icinde bir objemiz var.id, task ve isDone key leri var.type larini da ordan bakarak yazdik.simdi bunu alip neverlardan olusan Arraye yazalim ki never gitsin.
 
-interface TodoType{
-  id:string | number;
-  task: string;
-  isDone: boolean;
-}
+// interface TodoType{
+//   id:string | number;
+//   task: string;
+//   isDone: boolean;
+// }
+
+//? usttekini ToDoList de de kullanacagimiz icin global dosyaya tasidik. burda sadece ismini kullandik
 
 const url = "https://64a7afb1dca581464b84939b.mockapi.io/todos";
 
@@ -105,7 +107,8 @@ const Main = () => {
       </Typography>
 
       <AddToDoComp addTodo={addTodo} />
-      <ToDoList />
+      <ToDoList todos={todos}/> 
+      {/* verileri sergilemek icin props olarak gonderelim ve de karsilayalim */}
     </Container>
   );
 }

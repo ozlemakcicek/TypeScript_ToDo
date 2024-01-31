@@ -4,3 +4,12 @@
 
 
 type AddFn = (text: string) => void; 
+
+
+//? Main ve ToDoList deki ortak type
+
+interface TodoType {
+  id: string | number;
+  task: string;
+  isDone: boolean;
+}

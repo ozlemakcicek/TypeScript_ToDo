@@ -56,6 +56,14 @@
 
 - ayni type tanimlamasi varsa bunlari heryerde tek tek tanimlamak yerine, typescript in dosya yapisindakli react-app-env.d.ts dosyasinin verdigi izinle yeni global bir dosya acip src icinde orda tanimlayip gerekli yerlerde sadece ismini cagiririz.
 
+## artik inputa verileri girdik, API den verileri cektik, yeni veri gonderdik simdi verileri sergileyelim todoList de. ayni olan type tanimlamalarini global dosyaqya cektik ve sadece ismini kullandik.
+
+
+-  todo larin isDone lari false olanlarini ayri, true olanlarini ayri sergileyelim deersek 2 ayri state olusturalim. ve bunu todos her degistiginde yap diyoruz
+
+- artik todoList i ekrana basabiliriz. mui ile yapiyi kurduktan sonra state leri ilgili yerlerde ac ve conditionlarini yaz. su kontrolu de yapablrz.eger veri varsa(length i true(1) ise progressTodosu map le ve todoListItema itemi props olarak gonder. degilse no progress todos yazdir.  
+# ToDoListItem da da karsila
+
 # --------------------------------------------------------------------------
 ## TYPESCRIPT
 - Microsoft tarafindan gelistirilmis, JS in söz dizimsel bir süper kümesidir.Yeni bir dil olmak yerine JS uzerine kendi söz dizimini insa eden ve gelistiricilere kodlarinda kullanabilecekleri yeni özellikler sunan bir programlama dili. dunyanin en cok kullanilan 3.prog.dilidir. Js in ustunde dir TS. Js de olmayan ozellikleri JS e kazandiriyor, compile edilmeye ihtiyaci var. 
