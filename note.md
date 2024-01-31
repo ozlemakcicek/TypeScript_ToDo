@@ -35,6 +35,16 @@
 
 - kurgumuz su; App icinde Main i cagiracagiz.yapiyi burda kurup dagitimi alt comp.lere yapacagiz. Main de AddToDo ve todo lari sergilemek icin ToDolist i cagiracagiz.ToDoList icinde de ToDoListItem i cagiracagiz
 
+
+
+
+
+
+
+
+
+
+
 # ------------------------------------------------------------------------
 
 #                          TODO APP PROJESI KURGUSU
@@ -62,7 +72,34 @@
 -  todo larin isDone lari false olanlarini ayri, true olanlarini ayri sergileyelim deersek 2 ayri state olusturalim. ve bunu todos her degistiginde yap diyoruz
 
 - artik todoList i ekrana basabiliriz. mui ile yapiyi kurduktan sonra state leri ilgili yerlerde ac ve conditionlarini yaz. su kontrolu de yapablrz.eger veri varsa(length i true(1) ise progressTodosu map le ve todoListItema itemi props olarak gonder. degilse no progress todos yazdir.  
-# ToDoListItem da da karsila
+
+# ToDoListItem da da karsila.yine type ni belirt.
+
+# DELETE ISLEMI
+
+# simdi silme ve guncelleme islemlerini yapalim. Silmek icin bize ilgili verinin id si ve bu void bir islem lazim. Bunu yine main de yapacagiz ama todolistitem da yapmak daha guzel ve dogru.biz burda typescript yxapisini gormek istedigimiz icin gonderip, karsilam da typeni belirtmeyi gostermek istyrz.
+- yine bir async await li fonksiyon, icine try catch bloku aciyoruz.delete icin mainde yazdigimiz fonksiyon ve id nin typeni yine globalde tanimlayip main de fonksiyonda kullanip, gonderip, todoList de yine type kisminda tanimlayip, karsilarken kullnalim. ordan da ayni islemleri toDoListItem a gonder ve karsilama seklinde yap. simdi evente yazalim. deletebutonuna tiklayinca silme fonksiyonunu calistirsin ve silsin diyecegiz hem progress de hem de completed kisminda(silmeler id ile olur)
+
+# TODO YU GUNCELLEYECEK OLAN FONKSIYON, TOGGLE 
+
+- once globalde type tanimlayalim.parametre olarak item in kendisini alacak.veri type i da TodoType olacak. yine main de guncelleme fonksiyonunu yaziyoruz.put islemini kullanacgz.Guncelleyecegimiz itemin id sini ve bir body gondermemiz lazim  onu yaziyoruz.Butun itemi al ve gelen itemin isDone ini guncelle.neye gore guncelle? ture, false diye yazmiyoruz dinamik bir fonksiyon yazariz. belki yanlislikla sildi ve geri almak istiyor diye. Bunun icin Ayrica bir fonksiyon yazmak yerine burda halledebilriiz.gelen itemin isDone inin tersini yap deriz. ve tekrar guncel veriyi ekrana getirsin diyorz.
+
+# alt componente gonderiyorz yine type li halini.ToDoList e ordan da ToDoListItem a gidiyor. yine tanimlayip ilgili yerlere gonderiyoruz. En son ToDoListItem da ListItemText de yazinin ustune click yapilinca calisisn istedigimiz icin oraya ekliyoruz.
+
+- boylece isDone i true ise false yapacak, false ise true yapacak textin ustune basinca.Yani istenilirse progress de ise completed a alacak, completed da ise progress e geri cekecek
+
+# SWEETALERT KULLANIMI
+
+# son olarak islem yapinca bir alert cikartsin diye toastify veya sweetalert kullanabiliriz.
+
+ - bu projede yarn kullandigimiz icin  yarn add  sweetalert yaziyoruz terminale .Ama sitesinde   npm install --save sweetalert var
+
+ - src icine ayri bir klasor acip helper diye ve icine de .ts li dosya ac ve yine siteden import swal from 'sweetalert'; yi getir koy. ardindan bir fonksiyon tanimliyorz. ve yine siteden swal() yapisini getirip istediklerimizi alip, degistirip, type larini da fonksiyon icinde yazariz.
+
+ - simdi Main.ts de yapilacak islemler icin yazilan fonksiyonlarda(delete ve update de) kullanip, not yazalim icine
+
+
+
 
 # --------------------------------------------------------------------------
 ## TYPESCRIPT
@@ -93,6 +130,18 @@ let user:IUser={
 
 
 - JS de kodun runtime zamanina kadar hata alamyiz.calisirken gorulur proje ayaga kalkmis bi dunya maliyet oluyor.mesela string ifadeleri carpmaya kalktik diyelim. TS de ise baslangic degeri atayarak hatalari bastan engellemeye calisiriz. RunTime a gelmeden adim adim göturuyor bizi .
+
+
+
+# ******************************************************
+
+# her props alan componentte FC yi, propslarin typeni belirtmemiz lazim. aymni sekilde bazi stateleri tanimlarken, fonksiyon tanimlarken, ozellikle parametre alan func tnaimlarken type ni beluirtmlyz, yoksa gelen parametrenin type ni typescript any olarak belirtir.any demek typescript kullanilmamis demek.
+
+# typescript kullandim diyor ama codunda any varsa bir developerin o is olmamis demektir
+
+
+
+# alert notu yazmasi icin delete veya update islemlerinde sweetalert-npm sitesinden istifade edebilirsin
 
 
 

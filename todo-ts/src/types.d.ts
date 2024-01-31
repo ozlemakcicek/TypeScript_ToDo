@@ -6,10 +6,24 @@
 type AddFn = (text: string) => void; 
 
 
-//? Main ve ToDoList deki ortak type
+//? Main ve ToDoList deki ortak type bu idi
 
 interface TodoType {
   id: string | number;
   task: string;
   isDone: boolean;
 }
+
+
+
+
+//! Delete islemi icin yine main den gonderip, todolist de karsilarken kulanacgmz ortek type i yaziyoruz
+
+type DeleteFn = (id: string | number) => void; 
+
+
+
+
+//? Update islemleri icin;
+
+type ToggleFn=( item:TodoType ) =>void;  // direkt item ile islem yapar bu

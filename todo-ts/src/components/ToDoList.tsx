@@ -7,9 +7,14 @@ import ToDoListItem from "./ToDoListItem";
 
 interface ITodos {
   todos: TodoType[]; // bunun type i Main de TodoType olarak tanimlanmisti ama burdan ulasamyiz.o yuzden globale tasiyalim yine main dekini..Type TodoType array oldu.gelen veriler array icinde tutulacak tabiki
+  // mainden gelen propsun type ni burda tanimlayalim ki algilayabilsin.asagida da karsilayalim.burdan da todoListItem a gonder
+  deleteTodo: DeleteFn;
+  toggleTodo:ToggleFn;
 }
-const ToDoList: FC<ITodos> = ({ todos }) => {
+const ToDoList: FC<ITodos> = ({ todos, deleteTodo,toggleTodo }) => {
   // todo larin isDone lari false olanlarini ayri, true olanlarini ayri sergileyelim deersek 2 ayri satate olusturalim ve typelarini belirtelim.
+
+  
 
   const [completedTodos, setCompletedTodos] = useState<TodoType[]>([]);
   const [progressTodos, setProgressTodos] = useState<TodoType[]>([]);
@@ -53,7 +58,14 @@ const ToDoList: FC<ITodos> = ({ todos }) => {
         </Typography>
         {progressTodos.length ? (
           progressTodos.map((item) => (
-            <ToDoListItem key={item.id} item={item} /> // karsila bunu ToDoListItem da
+            // guncelleme islemini textin uzerine click yapilinca olacak
+            <ToDoListItem
+              key={item.id}
+              item={item}
+              deleteTodo={deleteTodo}
+              toggleTodo={toggleTodo}
+            />
+            // karsila bunu ToDoListItem da
           ))
         ) : (
           <Typography color="error" mt={3}>
@@ -76,6 +88,20 @@ const ToDoList: FC<ITodos> = ({ todos }) => {
         <Typography variant="h4" align="center" color="secondary">
           Completed Todos
         </Typography>
+        {completedTodos.length ? (
+          completedTodos.map((item) => (
+            <ToDoListItem
+              key={item.id}
+              item={item}
+              deleteTodo={deleteTodo}
+              toggleTodo={toggleTodo}
+            /> // karsila bunu ToDoListItem da
+          ))
+        ) : (
+          <Typography color="error" mt={3}>
+            No Completed todos!{" "}
+          </Typography>
+        )}
       </Grid>
     </Grid>
   );
